@@ -1,0 +1,51 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.pkl
+*.pyc
+
+# Virtual environment
+venv/
+env/
+.my_env/
+
+
+
+# Environment secrets
+.env
+
+
+# Django stuff
+*.log
+*.pot
+*.pyc
+*.sqlite3
+db.sqlite3
+media/
+staticfiles/
+
+# VSCode / IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Migrations (optional, if you don’t want auto-created migrations)
+# */migrations/*
+# !*/migrations/__init__.py
+
+# Pipenv / Poetry / virtualenv
+Pipfile.lock
+poetry.lock
+
+# Cache
+*.cache
+*.pytest_cache/
+.coverage
+htmlcov/

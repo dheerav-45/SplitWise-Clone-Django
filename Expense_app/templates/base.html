@@ -1,0 +1,553 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>splitwise</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+        integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Arial', sans-serif;
+    }
+
+    .background {
+        background-image: url("{% static 'images/splitwise bg.jpg' %}");
+        height: 100%;
+        background-position: center;
+    }
+
+    .home1 {
+        position: relative;
+        width: 100%;
+        height: 80vh;
+        overflow: hidden;
+    }
+
+    .home1 img {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: fill;
+    }
+
+    .text-content {
+        max-width: 30%;
+    }
+
+    .headline {
+        font-size: 2.5rem;
+        font-weight: bold;
+        color: black;
+        line-height: 1.2;
+        margin-bottom: 20px;
+    }
+
+    .subheading {
+        font-size: 1.1rem;
+        color: black;
+        margin-bottom: 30px;
+        line-height: 1.5;
+    }
+
+    .sign-up-btn {
+        background-color: rgb(28, 202, 144);
+        color: white;
+        padding: 12px 30px;
+        border: none;
+        border-radius: 5px;
+        font-size: 1.1rem;
+        font-weight: bold;
+        cursor: pointer;
+        transition: background-color 0.3s;
+    }
+
+    .sign-up-btn:hover {
+        background-color: rgb(28, 202, 144);
+    }
+
+    .platforms {
+        font-size: 0.9rem;
+        color: black;
+        margin-top: 20px;
+    }
+
+    .heart-image {
+        max-width: 40%;
+    }
+
+    .heart-image img {
+        width: 100%;
+        height: auto;
+    }
+
+    @media (max-width: 768px) {
+        .container {
+            flex-direction: column;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .text-content {
+            max-width: 100%;
+            margin-bottom: 20px;
+        }
+
+        .heart-image {
+            max-width: 60%;
+        }
+
+        .headline {
+            font-size: 1.8rem;
+        }
+
+        .subheading {
+            font-size: 1rem;
+        }
+    }
+</style>
+
+<body>
+    <!-- navbar -->
+    <div class="background">
+        <nav class="navbar bg-body-light">
+            <div class="container">
+
+                <a class="navbar-brand  ms-5 d-flex" href="http://127.0.0.1:8000/">
+                    <img src="{% static 'images/splitwise-logo.png' %}" alt="Logo" width="50" height="50"
+                        class="d-inline-block align-text-top">
+                    <h5 style="margin-top: 15%; margin-left: 10%;" class="fw-bold">Splitwise</h5>
+                </a>
+
+                <div class="me-5">
+                    <a href="{% url 'login' %}" class="me-3 link-underline-light"
+                        style="color:  rgb(28, 202, 144);">Login</a>
+                    <a href="{% url 'signup' %}" class="btn"
+                        style="background: rgb(28, 202, 144); color: white;">Signup</a>
+                </div>
+            </div>
+        </nav>
+
+        <!-- 1st signup -->
+        <div style="margin-top: 7%; margin-left: 18%;" class="d-flex ">
+            <div class="text-content">
+                <h1 class="headline">Less stress when sharing expenses</h1>
+                <p class="subheading">Keep track of your shared expenses and balances with housemates, trips, groups,
+                    friends, and family.</p>
+                <a href="{% url 'signup' %}" class="btn sign-up-btn">Sign up</a>
+                <p class="platforms">Free for
+                    <a href="https://apps.apple.com/us/app/splitwise/id458023433" class="link-underline-light"
+                        style="color: black;">iPhone</a>,
+                    <a href="https://play.google.com/store/apps/details?id=com.Splitwise.SplitwiseMobile"
+                        class="link-underline-light" style="color: black;">Android</a>, and web.
+                </p>
+            </div>
+            <div class="heart-image ">
+                <img src="{% static 'images/splitwise_plane.png' %}" alt="">
+            </div>
+        </div>
+
+    </div>
+
+    <div class="home1"><img src="{% static 'images/splitwise-home1.png' %}" alt=""></div>
+    <div class="home1"><img src="{% static 'images/splitwise-home2.png' %}" alt=""></div>
+
+
+    <!-- 2nd signup -->
+    <style>
+        .background1 {
+            background-image: url("{% static 'images/splitwise-bg2.png' %}");
+            background-position: center;
+        }
+
+        .text-content1 {
+            max-width: 30%;
+            margin-top: 15%;
+            color: white;
+        }
+
+        .headline1 {
+            font-size: 2.5rem;
+            font-weight: bold;
+            line-height: 1.2;
+            margin-bottom: 20px;
+        }
+
+        .subheading1 {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            margin-bottom: 30px;
+            line-height: 1.5;
+        }
+
+        .sign-up-btn1 {
+            background-color: #5e3f7e;
+            color: white;
+            padding: 12px 30px;
+            border: none;
+            border-radius: 5px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .sign-up-btn1:hover {
+            background-color: #f0f0f0;
+            color: #5a3de6;
+        }
+
+        .phone-mockup {
+            max-width: 100%;
+            margin-top: 20%;
+            margin-left: 25%;
+        }
+
+        .phone-mockup img {
+            width: 20vw;
+            height: 60vh;
+        }
+
+        @media (max-width: 768px) {
+
+            .text-content1 {
+                max-width: 100%;
+                margin-bottom: 20px;
+            }
+
+            .phone-mockup {
+                max-width: 100%;
+
+            }
+
+            .headline1 {
+                font-size: 1.8rem;
+            }
+
+            .subheading1 {
+                font-size: 1rem;
+            }
+        }
+    </style>
+    <div class="background1">
+        <div class="d-flex" style="margin-left: 18%;">
+            <div class="text-content1">
+                <h1 class="headline1">Get even more with PRO</h1>
+                <p class="subheading1">Get even more organized with receipt scanning, charts and graphs, currency
+                    conversion, and more!</p>
+                <a href="http://127.0.0.1:8000/expense/signup" class="btn sign-up-btn1">SIGN UP</a>
+            </div>
+            <div class="phone-mockup ">
+                <img src="{% static 'images/splitwise-home3.png' %}" alt="Phone Mockup of App">
+            
+            </div>
+        </div>
+    </div>
+
+    <div class="home1"><img src="{% static 'images/splitwise-home4.png' %}" alt=""></div>
+    <style>
+        .container2 {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+        }
+        .testimonial {
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 30px;
+            width: 32%;
+            /* Adjusted to fit 3 boxes with some spacing */
+            box-sizing: border-box;
+            text-align: left;
+        }
+        .testimonial:hover {
+            box-shadow: 0px 0px 20px 1px gray;
+            border: 1px solid rgba(255, 255, 255, 0.454);
+        }
+        .testimonial p {
+            font-size: 20px;
+            line-height: 1.5;
+            margin: 0 0 10px;
+            color: black;
+        }
+        .source {
+            display: flex;
+            align-items: center;
+            font-size: 20px;
+            color: #333;
+        }
+        .source img {
+            width: 30px;
+            height: 30px;
+            margin-right: 10px;
+        }
+        @media (max-width: 768px) {
+            .row {
+                flex-direction: column;
+            }
+
+            .testimonial {
+                width: 100%;
+                margin-bottom: 20px;
+            }
+
+            .testimonial:last-child {
+                margin-bottom: 0;
+            }
+        }
+    </style>
+    <div class="container2 mt-5">
+        <!-- First Row -->
+        <div class="row">
+            <!-- Testimonial 1 -->
+            <div class="testimonial">
+                <a href="https://www.ft.com/content/8ccd6f0e-18bb-11e9-b93e-f4351a53f1c3" class="link-underline-light">
+                    <p>"Fundamental" for tracking finances. As good as WhatsApp for containing awkwardness.</p>
+                    <div class="source">
+                        <!-- Placeholder for logo -->
+                        <img src="{% static 'images/splitwise-ft.jpg' %}" alt="Financial Times Logo">
+                        <span>Financial Times</span>
+                    </div>
+                </a>
+            </div>
+
+            <!-- Testimonial 2 -->
+            <div class="testimonial">
+                <p>Life hack for group trips. AMAZING tool to use when traveling with friends! Makes life so easy!!</p>
+                <div class="source">
+                    <span>Ahah S, iOS</span>
+                </div>
+            </div>
+
+            <!-- Testimonial 3 -->
+            <div class="testimonial">
+                <a href="https://www.nytimes.com/2018/08/28/smarter-living/money-finance-apps-tools.html"
+                    class="link-underline-light">
+                    <p>Makes it easy to split everything from your dinner bill to rent.</p>
+                    <div class="source">
+                        <!-- Placeholder for logo -->
+                        <img src="{% static 'images/splitwise-ny.png' %}" alt="NY Times Logo">
+                        <span>NY Times</span>
+                    </div>
+                </a>
+            </div>
+        </div>
+
+        <!-- Second Row -->
+        <div class="row">
+            <!-- Testimonial 4 -->
+            <div class="testimonial">
+                <p>So amazing to have this app manage finances and help keep money out of relationships. love it!</p>
+                <div class="source">
+                    <span>Haseena C, Android</span>
+                </div>
+            </div>
+
+            <!-- Testimonial 5 -->
+            <div class="testimonial">
+                <a href="https://www.businessinsider.com/best-apps-for-splitting-expenses-friends-2017-3"
+                    class="link-underline-light">
+                    <p>I never fight with roommates over bills because of this genius expense-splitting app</p>
+                    <div class="source">
+                        <!-- Placeholder for logo -->
+                        <img src="{% static 'images/spltwise-bi.png' %}" alt="Business Insider Logo">
+                        <span>Business Insider</span>
+                    </div>
+                </a>
+            </div>
+
+            <!-- Testimonial 6 -->
+            <div class="testimonial">
+                <p>I use it everyday. I use it for trips, roommates, loans. I love splitwise.</p>
+                <div class="source">
+                    <span>Trickseyus, iOS</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        .footer {
+            background-color: white;
+          
+            padding: 40px 20px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+
+        .footer-column {
+            flex: 1;
+            min-width: 200px;
+            margin-bottom: 20px;
+        }
+
+        .footer-column h3 {
+            font-size: 16px;
+
+            margin-bottom: 10px;
+        }
+
+        .footer-column ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .footer-column ul li {
+            margin-bottom: 8px;
+        }
+
+        .footer-column ul li a {
+            text-decoration: none;
+            color: black;
+           
+            font-size: 14px;
+        }
+
+        .footer-column ul li a:hover {
+            text-decoration: underline;
+        }
+
+        .app-buttons {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 10px;
+        }
+
+        .app-buttons img {
+            width: 150px;
+            height: auto;
+            margin-top: 50px;
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 10px;
+        }
+
+        .social-icons img {
+            width: 24px;
+            height: 24px;
+        }
+
+        .made-with {
+            font-size: 12px;
+            color: #666;
+            margin-top: 10px;
+        }
+
+        @media (max-width: 768px) {
+            .footer-column {
+                flex: 100%;
+                text-align: center;
+            }
+
+            .app-buttons,
+            .social-icons {
+                justify-content: center;
+            }
+        }
+    </style>
+
+    <footer class="footer">
+        <div class="footer-container">
+            <!-- Column 1: About -->
+            <div class="footer-column">
+                <h3 style="color: rgb(28, 202, 144);" class="fw-bold">Splitwise</h3>
+                <ul>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Press</a></li>
+                    <li><a href="#">Blog</a></li>
+                    <li><a href="#">Jobs</a></li>
+                    <li><a href="#">Calculators</a></li>
+                    <li><a href="#">API</a></li>
+                </ul>
+            </div>
+
+            <!-- Column 2: Account -->
+            <div class="footer-column">
+                <h3 style="color: orangered;" class="fw-bold">Account</h3>
+                <ul>
+                    <li><a href="#">Log in</a></li>
+                    <li><a href="#">Sign up</a></li>
+                    <li><a href="#">Reset password</a></li>
+                    <li><a href="#">Settings</a></li>
+                    <li><a href="#">Splitwise Pro</a></li>
+                    <li><a href="#">Splitwise Pay</a></li>
+                    <li><a href="#">Splitwise Card</a></li>
+                </ul>
+            </div>
+
+
+            <div class="footer-column">
+                <h3 style="color: black;" class="fw-bold">More</h3>
+                <ul>
+                    <li><a href="#">Contact us</a></li>
+                    <li><a href="#">FAQ</a></li>
+                    <li><a href="#">Terms of Service</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                </ul>
+
+                <div class="social-icons">
+
+                    <a href="https://x.com/splitwise"><i class="fa-brands fa-square-x-twitter fa-2xl"
+                            style="color: #575e6b;"></i></a>
+                    <a href="https://www.facebook.com/splitwise"><i class="fa-brands fa-square-facebook fa-2xl"
+                            style="color: #40454f;"></i></a>
+                    <a href="https://www.instagram.com/splitwise/"><i class="fa-brands fa-square-instagram fa-2xl"
+                            style="color: #4d525c;"></i></a>
+                </div>
+            </div>
+            <div class="footer-column">
+                <div class="app-buttons">
+
+                    <a href="https://play.google.com/store/apps/details?id=com.Splitwise.SplitwiseMobile"><img
+                            src="{% static 'images/splitwise-gplay.png' %}" alt="Google Play"></a>
+                    <a href="https://apps.apple.com/us/app/splitwise/id458023433"><img
+                            src="{% static 'images/splitwise-appstore.png' %}" alt="App Store"></a>
+                </div>
+                <div class="made-with">
+                    Made with :) in Providence, RI, USA
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+    <img src="{% static 'images/splitwise-end.png' %}" alt="" style="width: 100%;height: 100%; object-fit: fill;">
+
+</body>
+
+</html>

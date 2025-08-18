@@ -1,0 +1,18 @@
+
+{% extends "home.html" %}
+{% block content %}
+<h1>All Expenses</h1>
+{% endblock %}
+
+{% block allexpense %}
+
+<div >
+<h1>all expenses list here</h1>
+{%for i in data%}
+    <p><span>Your description :  </span> {{i.description}}</p> 
+    <p><span>Your amount :  </span> {{i.amount}}</p> 
+    
+</div>
+{%endfor%}
+
+{% endblock %}

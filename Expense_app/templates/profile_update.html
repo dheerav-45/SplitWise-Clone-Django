@@ -1,0 +1,191 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Your Account - Profile Update</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <style>
+    .avatar {
+      width: 140px;
+      height: 140px;
+      object-fit: cover;
+      border-radius: 10px;
+    }
+
+    .section-title {
+      font-size: 1.5rem;
+      font-weight: 600;
+    }
+  </style>
+</head>
+
+<body>
+  <nav class="navbar " style="background-color: rgb(97, 227, 184);">
+    <div class="container">
+
+      <a class="navbar-brand  ms-5 d-flex" href="{% url 'homeview' %}">
+        <img src="{% static 'images/splitwise-logo.png' %}" alt="Logo" width="50" height="50"
+          class="d-inline-block align-text-top">
+        <h5 style="margin-top: 15%; margin-left: 10%;" class="fw-bold">Splitwise</h5>
+      </a>
+
+      <div class="me-5">
+        <li class="nav-item dropdown d-flex">
+          <a href="{% url 'homeview' %}"  class="me-5 btn  p-1">home</a>
+          <a class="nav-link dropdown-toggle p-1" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            {{request.user}}
+          </a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="{% url 'profile' %}">profile</a></li>
+            <li>
+              <hr class="dropdown-divider">
+            </li>
+            <li><a class="dropdown-item" href="#">Another action</a></li>
+            <li>
+              <hr class="dropdown-divider">
+            </li>
+            <li><a class="dropdown-item" href="{% url 'logout'%}">Logout</a></li>
+          </ul>
+      </div>
+    </div>
+  </nav>
+  <div class="container py-5">
+    <h2 class="mb-4">Your account</h2>
+
+    <div class="row">
+
+      <div class="col-md-8">
+        <form method="post">
+          {% csrf_token %}
+
+
+          <div class="mb-3">
+            <label class="form-label">Your name</label>
+            {{form.username}}
+          </div>
+
+          <div class="mb-3">
+            <label class="form-label">First name</label>
+            {{form.first_name}}
+          </div>
+
+          <div class="mb-3">
+            <label class="form-label">Last name</label>
+            {{form.last_name}}
+          </div>
+
+
+          <div class="mb-3">
+            <label class="form-label">Your email address</label>
+            {{form.email}}
+          </div>
+
+          <div class="row">
+            <div class="col-md-4 mb-3">
+              <label class="form-label">Default currency</label>
+              <select name="currency" class="form-select">
+                <option selected>USD ($)</option>
+                <option>INR (₹)</option>
+              </select>
+            </div>
+            <div class="col-md-4 mb-3">
+              <label class="form-label">Time zone</label>
+              <select name="timezone" class="form-select">
+                <option selected>(GMT+05:30) Chennai</option>
+                <option>(GMT+00:00) UTC</option>
+              </select>
+            </div>
+            <div class="col-md-4 mb-3">
+              <label class="form-label">Language</label>
+              <select name="language" class="form-select">
+                <option selected>English</option>
+              </select>
+            </div>
+          </div>
+
+          <button class="btn btn-warning">Save</button>
+        </form>
+      </div>
+    </div>
+
+ 
+    <hr class="my-5">
+    <h4 class="section-title">Notifications</h4>
+    <div class="row">
+      <div class="col-md-4">
+        <h6>Groups and Friends</h6>
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" name="group_added" checked />
+          <label class="form-check-label">When someone adds me to a group</label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" name="friend_added" />
+          <label class="form-check-label">When someone adds me as a friend</label>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <h6>Expenses</h6>
+        <div class="form-check"><input class="form-check-input" type="checkbox" name="expense_added" /><label
+            class="form-check-label">When an expense is added</label></div>
+        <div class="form-check"><input class="form-check-input" type="checkbox" name="expense_edited" /><label
+            class="form-check-label">When an expense is edited/deleted</label></div>
+        <div class="form-check"><input class="form-check-input" type="checkbox" name="comment" /><label
+            class="form-check-label">When someone comments on an expense</label></div>
+        <div class="form-check"><input class="form-check-input" type="checkbox" name="due" /><label
+            class="form-check-label">When an expense is due</label></div>
+        <div class="form-check"><input class="form-check-input" type="checkbox" name="paid" /><label
+            class="form-check-label">When someone pays me</label></div>
+      </div>
+      <div class="col-md-4">
+        <h6>News and Updates</h6>
+        <div class="form-check"><input class="form-check-input" type="checkbox" name="monthly_summary" /><label
+            class="form-check-label">Monthly summary of my activity</label></div>
+        <div class="form-check"><input class="form-check-input" type="checkbox" name="news" /><label
+            class="form-check-label">Major Splitwise news and updates</label></div>
+      </div>
+    </div>
+    <button class="btn btn-warning mt-3">Save</button>
+
+ 
+    <hr class="my-5">
+    <h4 class="section-title">Advanced features</h4>
+    <p>Most users don’t need these features – but here they are in case you do!</p>
+    <div class="d-flex gap-2 flex-wrap">
+      <button class="btn btn-success">Get Splitwise Pro!</button>
+      <button class="btn btn-outline-secondary">Merge with another account</button>
+      <button class="btn btn-danger">Delete your account</button>
+    </div>
+
+  </div>
+  <footer class="text-white mt-5 pt-4 pb-3" style="background-color: #666;">
+    <div class="container text-center">
+      <p class="mb-1">
+        Made with in Providence, RI, USA
+      </p>
+      <p class="mb-2">
+        Copyright © 2025 Splitwise, Inc. All rights reserved.
+      </p>
+      <div class="mb-2">
+        <a href="#" class="text-white text-decoration-none mx-1">About</a> |
+        <a href="#" class="text-white text-decoration-none mx-1">Jobs</a> |
+        <a href="#" class="text-white text-decoration-none mx-1">Calculators</a> |
+        <a href="#" class="text-white text-decoration-none mx-1">Blog</a> |
+        <a href="#" class="text-white text-decoration-none mx-1">Terms</a> |
+        <a href="#" class="text-white text-decoration-none mx-1">Press</a> |
+        <a href="#" class="text-white text-decoration-none mx-1">API</a> |
+        <a href="#" class="text-white text-decoration-none mx-1">Contact us</a>
+      </div>
+      <div>
+        <a href="#"><img src="https://cdn-icons-png.flaticon.com/512/733/733547.png" width="30" alt="Facebook"></a>
+        <a href="#"><img src="https://cdn-icons-png.flaticon.com/512/733/733579.png" width="30" alt="Twitter"></a>
+      </div>
+    </div>
+  </footer>
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

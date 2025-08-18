@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+        integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    
+</head>
+
+    <style>
+        .sidebar {
+            margin-left: 150px;
+            width: 250px;
+            background-color: #fff;
+            margin-top: 6%;
+            padding: 20px;
+            position: fixed;
+            top: 0;
+            left: 0;
+        }
+
+        .sidebar h3 {
+            margin: 0 0 20px;
+            font-size: 18px;
+            color: #333;
+            text-transform: uppercase;
+        }
+
+        .sidebar ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .sidebar ul li {
+            margin: 10px 0;
+            display: flex;
+            align-items: center;
+        }
+
+        .sidebar ul li a {
+            text-decoration: none;
+            color: #333;
+            font-size: 14px;
+        }
+
+        .sidebar ul li a:hover {
+            color: rgb(97, 227, 184);
+        }
+
+        .sidebar ul li .icon {
+            width: 20px;
+            height: 20px;
+            margin-right: 10px;
+            color: #999;
+        }
+
+        .sidebar .group {
+            margin: 20px 0;
+        }
+
+        .sidebar .group a {
+            color: rgb(97, 227, 184);
+            font-weight: bold;
+        }
+
+        .sidebar .group .add {
+            margin-left: 5px;
+            font-size: 14px;
+            color: #999;
+            text-decoration: none;
+        }
+
+        .sidebar .group .add:hover {
+            color: rgb(97, 227, 184);
+        }
+
+        .sidebar .friends {
+            margin-top: 20px;
+        }
+
+        .sidebar .friends ul li .avatar {
+            width: 20px;
+            height: 20px;
+            background-color: #ccc;
+            border-radius: 50%;
+            margin-right: 10px;
+        }
+
+        .sidebar .invite {
+            margin-top: 20px;
+        }
+
+        .sidebar .invite h3 {
+            background-color: rgb(97, 227, 184);
+            color: #fff;
+            padding: 10px;
+            border-radius: 4px;
+            font-size: 16px;
+            text-align: center;
+        }
+
+        .sidebar .invite input {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        .sidebar .invite button {
+            width: 100%;
+            padding: 8px;
+            background-color: rgb(97, 227, 184);
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+
+        .sidebar .invite button:hover {
+            background-color: rgb(97, 227, 184);
+        }
+
+        .sidebar .social-buttons {
+            display: flex;
+            gap: 10px;
+            margin-top: 10px;
+        }
+
+        .sidebar .social-buttons button {
+            flex: 1;
+            padding: 8px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .sidebar .social-buttons .facebook {
+            background-color: #3b5998;
+            color: #fff;
+        }
+
+        .sidebar .social-buttons .facebook::before {
+            content: "f";
+            font-family: Arial, sans-serif;
+            margin-right: 5px;
+        }
+
+        .sidebar .social-buttons .twitter {
+            background-color: #000000;
+            color: #fff;
+        }
+
+        .sidebar .social-buttons .twitter::before {
+
+            margin-right: 5px;
+        }
+          .container1 {
+            margin-left: 30%;
+            width: 100%;
+            max-width: 600px;
+            min-height: 85vh;
+            background-color: #fff;
+            box-shadow: 0 50px 40px rgba(0, 0, 0, 0.1);
+            border: 2px solid rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+            background-color: #fff;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .header .group-info {
+            display: flex;
+            align-items: center;
+        }
+
+        .header .group-info .icon {
+            width: 24px;
+            height: 24px;
+            background-color: #00c4b4;
+            border-radius: 50%;
+            margin-right: 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #fff;
+            font-size: 14px;
+        }
+
+        .header .group-info h2 {
+            margin: 0;
+            font-size: 18px;
+            color: #333;
+        }
+
+        .header .group-info span {
+            margin-left: 5px;
+            font-size: 14px;
+            color: #999;
+        }
+
+        .header .buttons {
+            display: flex;
+            gap: 10px;
+        }
+
+        .header .buttons button {
+            padding: 8px 16px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+
+        .header .buttons .add-expense {
+            background-color: #ff6200;
+            color: #fff;
+        }
+
+        .header .buttons .settle-up {
+            background-color: #e0f7fa;
+            color: #00c4b4;
+        }
+
+        .content {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 40px;
+            text-align: center;
+
+        }
+
+        .content .checkmark {
+            width: 100px;
+            height: 100px;
+            background-color: #e0f7fa;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .content .checkmark::before {
+            content: "✔";
+            font-size: 50px;
+            color: #00c4b4;
+        }
+
+        .content p {
+            margin: 0;
+            font-size: 16px;
+            color: #333;
+        }
+
+        .content a {
+            margin-top: 10px;
+            color: #00c4b4;
+            text-decoration: none;
+            font-size: 14px;
+        }
+
+        .content a:hover {
+            text-decoration: underline;
+        }
+        .right-panel {
+            position: fixed;
+            top: 80px;
+            /* below navbar */
+            right: 0;
+            width: 698px;
+            height: calc(93% - 80px);
+            background-color: #fff;
+            border-left: 1px solid #ddd;
+            padding: 20px;
+            box-shadow: -2px 0 5px rgba(0, 0, 0, 0.05);
+        }
+        .right-panel h4 {
+            font-size: 16px;
+            margin-bottom: 20px;
+            color: #666;
+            text-transform: uppercase;
+        }
+        .right-panel .balance {
+            font-size: 18px;
+            font-weight: bold;
+            color: #00c4b4;
+        }
+        .right-panel .balance span {
+            display: block;
+            font-size: 14px;
+            color: #999;
+            margin-top: 5px;
+        }
+        .right-panel ul {
+            list-style: none;
+            padding: 0;
+            margin-top: 20px;
+        }
+        .right-panel ul li {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+            font-size: 14px;
+        }
+        .right-panel ul li span {
+            font-weight: bold;
+        }
+        .right-panel .icons {
+            display: flex;
+            gap: 10px;
+            margin-top: 20px;
+        }
+        .right-panel .icons button {
+            border: none;
+            background: #f5f5f5;
+            padding: 8px;
+            border-radius: 50%;
+            cursor: pointer;
+        }
+        .right-panel .icons button:hover {
+            background: #e0f7fa;
+            color: #00c4b4;
+        }
+    </style>
+
+<body>
+
+    {% load static %}
+    <nav class="navbar " style="background-color: rgb(97, 227, 184);">
+        <div class="container">
+
+            <a class="navbar-brand  ms-5 d-flex" href="#">
+                <img src="{% static 'images/splitwise-logo.png' %}" alt="Logo" width="50" height="50"
+                    class="d-inline-block align-text-top">
+                <h5 style="margin-top: 15%; margin-left: 10%;" class="fw-bold">Splitwise</h5>
+            </a>
+
+            <div class="me-5">
+                <li class="nav-item dropdown d-flex">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                        aria-expanded="false">
+                        {{request.user}}
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="{% url 'profile'  %}"><i class="fa-solid fa-user-circle"
+                                    style="color: #444;"></i>
+                                Your Account</a>
+                        </li>
+                        <li>
+                            <hr class="dropdown-divider">
+                        </li>
+                        <li><a class="dropdown-item" href="#"><i class="fa-solid fa-gear"></i>settings</a></li>
+                        <li>
+                            <hr class="dropdown-divider">
+                        </li>
+                        <li><a class="dropdown-item" href="{% url 'logout' %}"><i class="fa-solid fa-right-from-bracket"
+                                    style="color: red;"></i>Logout</a></li>
+                    </ul>
+                </li>
+            </div>
+        </div>
+    </nav>
+    <div class="sidebar">
+        <a href="{% url 'homeview' %}" class="link-underline-light">
+            <h3>Dashboard</h3>
+        </a>
+        <ul>
+            <li>
+                <span class="icon">📊</span>
+                <a href="#">Recent activity</a>
+            </li>
+            <li>
+                <span class="icon">💸</span>
+                <a href="{% url 'Read_Expanse' %}">All expenses</a>
+            </li>
+        </ul>
+        <div class="group">
+            <h3>Groups</h3>
+            <ul>
+                <li>
+                    <span class="icon">🏠</span>
+                    <a href="#">Splitwise</a>
+                </li>
+            </ul>
+            <h3>Friends</h3>
+            <ul>
+                <li>
+                    <span class="avatar"></span>
+                    <a href="#">amal</a>
+                </li>
+                <li>
+                    <span class="avatar"></span>
+                    <a href="#">arun</a>
+                </li>
+            </ul>
+        </div>
+        <div class="invite">
+            <h3>Invite friends</h3>
+            <input type="email" placeholder="Enter an email address">
+            <button>Send invite</button>
+            <div class="social-buttons">
+                <a href="https://www.facebook.com/login" class="facebook btn">Share</a>
+                <a href="http://x.com/i/flow/login" class="twitter btn"><i class="fa-brands fa-x-twitter"
+                        style="color: #ffffff;"></i>Tweet</a>
+            </div>
+        </div>
+    </div>
+    <div class="container1">
+        <div class="header">
+            <div class="group-info">
+
+                <!-- render to different html -->
+
+                {% block content %}
+                <div class="icon">🏠</div>
+                <h2>Splitwise</h2>
+                <span>3 people</span>
+                {% endblock %}
+
+            </div>
+            <div class="buttons">
+                <a href="{% url 'Add_Expanse' %}" class="add-expense btn">Add an expense</a>
+                <a href="{% url 'settil_Up' %}" class="settle-up btn">Settle up</a>
+            </div>
+        </div>
+        <div class="content">
+
+            {% block allexpense %}
+
+            <div class="checkmark"></div>
+            <p>You are all settled up in this group.</p>
+            <a href="{% url 'settil_List' %}">Show settled expenses</a>
+
+            {% endblock %}
+        </div>
+    </div>
+    <div class="right-panel">
+        <div class="icons" >
+            <div class="me-5">
+                <li class="nav-item dropdown d-flex">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                        aria-expanded="false"><i class="fa-solid fa-list"></i></a>
+
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="{% url 'premium'  %}"><i class="fa-solid fa-crown" style="color: gold;"></i>Premium Version</a>
+                        </li>
+                        <li><a class="dropdown-item" href="{% url 'user_balances' %}"><i class="fa-solid fa-wallet"></i>balance</a></li>
+                    </ul>
+                </li>
+            </div>
+        </div>
+        <h4>Your Balance</h4>
+        <div class="balance">
+            Ada owes you $69.21
+            <span>in total</span>
+        </div>
+        <ul>
+            <li>
+                <span>Amal</span>
+                <span style="color:#00c4b4;">$20.00</span>
+            </li>
+            <li>
+                <span>Arun</span>
+                <span style="color:#ff6200;">-$10.00</span>
+            </li>
+          
+        </ul>
+    </div>
+
+</body>
+
+</html>

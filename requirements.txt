@@ -1,0 +1,8 @@
+# pip versions
+Django==5.1.6
+mysqlclient==2.2.7
+pillow==11.1.0
+razorpay==1.4.2
+setuptools==78.1.0
+
+
