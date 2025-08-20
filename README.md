@@ -45,5 +45,3 @@ It also includes **Razorpay payment integration** and **email notifications**.
 
 ---
 
-## 📂 Project Structure
-
